@@ -51,4 +51,4 @@ See `examples/examples.ipynb` for more details.
 
 - This might not work on public wifi portals.
 - This might not work for sending requests to IPv6 endpoints (but it should for IPv4).
-
+- This might fail to open connections if your computer currently has an open NordVPN connection (ie, via the GUI).
