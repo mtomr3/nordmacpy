@@ -30,8 +30,8 @@ import random
 from typing import Set
 
 
-from list_configs import VpnConfig, ConnectionType
-from ip_info import IPInfo
+from .list_configs import VpnConfig, ConnectionType
+from .ip_info import IPInfo
 
 from dataclasses import dataclass
 
