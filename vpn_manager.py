@@ -60,7 +60,7 @@ class VpnManagerUtilities:
 
     @staticmethod
     def create_pass_file(username: str, password: str, verbose: bool = False) -> str:
-        from pass_file import create_nord_pass_file
+        from .pass_file import create_nord_pass_file
 
         pass_file_path = create_nord_pass_file(username, password, verbose=verbose)
         return pass_file_path
@@ -84,13 +84,13 @@ class VpnManagerUtilities:
 
     @staticmethod
     def download_config_files() -> None:
-        from download_configs import download_configs
+        from .download_configs import download_configs
 
         download_configs()
 
     @staticmethod
     def get_my_ip_info() -> IPInfo:
-        from ip_info import get_ip_info
+        from .ip_info import get_ip_info
 
         return get_ip_info()
 
@@ -129,7 +129,7 @@ class VpnManager:
     def connect_to_vpn(
         self, server_id: str, connection_type: ConnectionType, verbose: bool = False
     ) -> VpnConnectionResult:
-        from connection import open_vpn
+        from .connection import open_vpn
 
         self.disconnect()
 
@@ -162,7 +162,7 @@ class VpnManager:
         )
 
     def disconnect(self) -> None:
-        from connection import close_vpn
+        from .connection import close_vpn
 
         if self.proc is not None:
             close_vpn(self.proc)
@@ -278,14 +278,14 @@ class VpnManager:
     def get_available_servers(
         self, only_tcp: bool = False, only_udp: bool = False
     ) -> list[VpnConfig]:
-        from list_configs import get_vpn_configs
+        from .list_configs import get_vpn_configs
 
         return get_vpn_configs(only_tcp=only_tcp, only_udp=only_udp)
 
     def get_available_servers_by_country(
         self, only_tcp: bool = False, only_udp: bool = False
     ) -> dict[str, list[VpnConfig]]:
-        from list_configs import get_vpn_configs_per_country
+        from .list_configs import get_vpn_configs_per_country
 
         return get_vpn_configs_per_country(only_tcp=only_tcp, only_udp=only_udp)
 
